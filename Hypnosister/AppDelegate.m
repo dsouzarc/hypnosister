@@ -22,16 +22,10 @@
     CGRect frame1 = self.window.bounds; //CGRectMake(160, 240, 100, 150);
     
     BNRHypnosisView *view1 = [[BNRHypnosisView alloc] initWithFrame:frame1];
-    view1.backgroundColor = UIColor.redColor;
-    
- 
+    //view1.backgroundColor = UIColor.redColor;
     [self.window addSubview:view1];
     
-    /*CGRect frame2 = CGRectMake(20, 30, 50, 50);
-    BNRHypnosisView *view2 = [[BNRHypnosisView alloc] initWithFrame:frame2];
-    view2.backgroundColor = [UIColor blueColor];
-    [view1 addSubview:view2];
-    //[self.window addSubview:view2]; */
+    
     
     self.window.backgroundColor = UIColor.whiteColor;
     self.window.makeKeyAndVisible;

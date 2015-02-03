@@ -23,11 +23,25 @@
     //Largest that will fit in view
     float radius = (MIN(bounds.size.width, bounds.size.height) / 2.0);
     
+    [[UIColor lightGrayColor] setStroke];
+    
     UIBezierPath *pathToFollow = [[UIBezierPath alloc] init];
     [pathToFollow addArcWithCenter:center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:true];
     
+    pathToFollow.lineWidth = 10;
+    
     //Draw it
     [pathToFollow stroke];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    
+    if(self) {
+        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
 }
 
 @end
