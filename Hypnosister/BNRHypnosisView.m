@@ -19,19 +19,22 @@
     CGPoint center;
     center.x = (bounds.origin.x + bounds.size.width) / 2.0;
     center.y = (bounds.origin.y + bounds.size.height) / 2.0;
+ 
+    float maxRadius = hypot(bounds.size.width, bounds.size.height) / 2.0;
     
-    //Largest that will fit in view
-    float radius = (MIN(bounds.size.width, bounds.size.height) / 2.0);
+    UIBezierPath *path = [[UIBezierPath alloc] init];
     
-    [[UIColor lightGrayColor] setStroke];
+    for(float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20) {
+        
+        //'Picks' the pencil up and moves it elsewhere to continue drawing
+        [path moveToPoint:CGPointMake(center.x + currentRadius, center.y)];
+        
+        [path addArcWithCenter:center radius:currentRadius
+                    startAngle:0 endAngle:2 * M_PI clockwise:true];
+    }
     
-    UIBezierPath *pathToFollow = [[UIBezierPath alloc] init];
-    [pathToFollow addArcWithCenter:center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:true];
-    
-    pathToFollow.lineWidth = 10;
-    
-    //Draw it
-    [pathToFollow stroke];
+    path.lineWidth = 10.0;
+    [path stroke];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
