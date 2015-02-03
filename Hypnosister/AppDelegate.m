@@ -25,7 +25,7 @@
     //view1.backgroundColor = UIColor.redColor;
     [self.window addSubview:view1];
     
-    
+
     
     self.window.backgroundColor = UIColor.whiteColor;
     self.window.makeKeyAndVisible;
