@@ -12,12 +12,22 @@
 
 //@property (nonatomic) CGRect frame;
 
-/*
-// Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    // Drawing code
+    CGRect bounds = self.bounds;
+    
+    CGPoint center;
+    center.x = (bounds.origin.x + bounds.size.width) / 2.0;
+    center.y = (bounds.origin.y + bounds.size.height) / 2.0;
+    
+    //Largest that will fit in view
+    float radius = (MIN(bounds.size.width, bounds.size.height) / 2.0);
+    
+    UIBezierPath *pathToFollow = [[UIBezierPath alloc] init];
+    [pathToFollow addArcWithCenter:center radius:radius startAngle:0 endAngle:2 * M_PI clockwise:true];
+    
+    //Draw it
+    [pathToFollow stroke];
 }
-*/
 
 @end
