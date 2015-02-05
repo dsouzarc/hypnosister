@@ -35,6 +35,9 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     [self.window addSubview:scrollView];
     
+    //Forces scroll so you focus on only one view at a time
+    scrollView.pagingEnabled = true; //Can also be 'YES'
+    
     //Normal Hypnosis view and add it to the scroll view
     BNRHypnosisView *normalBNR = [[BNRHypnosisView alloc] initWithFrame:screenRect];
     [scrollView addSubview:normalBNR];
