@@ -29,20 +29,24 @@
     CGRect screenRect = self.window.bounds;
     CGRect bigRect = screenRect;
     bigRect.size.width *= 2;
-    bigRect.size.height *= 2;
+    //bigRect.size.height *= 2;
     
     //Screensized scrollview
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     [self.window addSubview:scrollView];
     
-    //Massive Hypnosis view
-    BNRHypnosisView *massiveBNR = [[BNRHypnosisView alloc] initWithFrame:bigRect];
-    
-    //Add it to the scrollview
-    [scrollView addSubview:massiveBNR];
+    //Normal Hypnosis view and add it to the scroll view
+    BNRHypnosisView *normalBNR = [[BNRHypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:normalBNR];
     
     //Tell it how big its child is
     scrollView.contentSize = bigRect.size;
+    
+    //Off center everything
+    screenRect.origin.x += screenRect.size.width;
+    BNRHypnosisView *offCenterBNR = [[BNRHypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:offCenterBNR];
+    
     
     self.window.backgroundColor = UIColor.whiteColor;
     self.window.makeKeyAndVisible;
