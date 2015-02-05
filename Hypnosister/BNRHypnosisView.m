@@ -8,6 +8,15 @@
 
 #import "BNRHypnosisView.h"
 
+//Class extension
+@interface BNRHypnosisView()
+
+//1 property
+@property (strong, nonatomic) UIColor *circleColor;
+
+@end
+
+
 @implementation BNRHypnosisView
 
 //@property (nonatomic) CGRect frame;
@@ -38,7 +47,27 @@
     UIImage *logo = [UIImage imageNamed:@"logo.png"];
     [logo drawInRect:rect];
     
+    [self.circleColor setStroke];
+    
     [path stroke];
+}
+
+- (void) setCircleColor:(UIColor *)circleColor
+{
+    _circleColor = circleColor;
+    [self setNeedsDisplay];
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"%@ Was touched", self);
+    
+    //Between 0 and 1
+    double red = drand48();
+    double green = drand48();
+    double blue = drand48();
+    
+    self.circleColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -47,6 +76,7 @@
     
     if(self) {
         self.backgroundColor = [UIColor clearColor];
+        self.circleColor = [UIColor lightGrayColor];
     }
     return self;
 }

@@ -24,9 +24,6 @@
     BNRHypnosisView *view1 = [[BNRHypnosisView alloc] initWithFrame:frame1];
     //view1.backgroundColor = UIColor.redColor;
     [self.window addSubview:view1];
-    
-
-    
     self.window.backgroundColor = UIColor.whiteColor;
     self.window.makeKeyAndVisible;
     return YES;

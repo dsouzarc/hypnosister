@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Ryan D'souza. All rights reserved.
 //
 
+//Declares methods/variables available to everyone
 #import <UIKit/UIKit.h>
 
 @interface BNRHypnosisView : UIView
