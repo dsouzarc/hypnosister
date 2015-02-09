@@ -35,7 +35,6 @@
     self.normalBNR = [[BNRHypnosisView alloc] initWithFrame:screenRect];
     [scrollView addSubview:self.normalBNR];
     
-    // Removed view below to implement pinch-to-zoom in original hypnosis view (silver challenge in chapter 7)
     // Create a second screen-sized hypnosis view and add it off the screen to the right
     //screenRect.origin.x += screenRect.size.width;
     //BNRHypnosisView *anotherView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
